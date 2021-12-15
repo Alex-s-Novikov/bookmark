@@ -1,12 +1,18 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-function Bookmark(id, bookmarkStyles, handleToggleBookmark) {
-  return (
-    <i
-      className={bookmarkStyles ? bookmarkStyles : "bi bi-bookmark"}
-      onClick={() => handleToggleBookmark(id)}
-    ></i>
-  );
-}
+const Qualitie = ({ color, name, _id }) => {
+    return (
+        <span className={"badge m-1 bg-" + color} key={_id}>
+            {name}
+        </span>
+    );
+};
 
-export default Bookmark;
+Qualitie.propTypes = {
+    color: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    _id: PropTypes.number.isRequired
+};
+
+export default Qualitie;
