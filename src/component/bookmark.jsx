@@ -1,18 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Qualitie = ({ color, name, _id }) => {
+const BookMark = ({ status, ...rest }) => {
     return (
-        <span className={"badge m-1 bg-" + color} key={_id}>
-            {name}
-        </span>
+        <button {...rest}>
+            <i className={"bi bi-bookmark" + (status ? "-heart-fill" : "")}></i>
+        </button>
     );
 };
 
-Qualitie.propTypes = {
-    color: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    _id: PropTypes.number.isRequired
+BookMark.propTypes = {
+    status: PropTypes.bool
 };
 
-export default Qualitie;
+export default BookMark;
